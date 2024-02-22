@@ -181,18 +181,14 @@ import { MatDividerModule } from '@angular/material/divider';
   ],
 })
 export class AddressServiceAngularComponent implements OnInit {
-  @Input() hoppySearchConfig: {
-    indexId: string;
-    apiKey: string;
-  } = {
-    indexId: '',
-    apiKey: '',
-  };
+  
   myControl = new FormControl('');
   list: any[] = [];
   selectedObject: any = {};
   isLoading: boolean = false;
   filteredOptions!: Observable<any[]>;
+  indexId: string = '1e2tq2';
+  apiKey: string = 'hs_l63fhj1fdtysx39j';
 
   async handleSearchAddress(event: Event, text: any) {
     event.preventDefault();
@@ -229,13 +225,13 @@ export class AddressServiceAngularComponent implements OnInit {
 
     await axios
       .post(
-        `https://${this.hoppySearchConfig?.indexId}.hoppysearch.com/v1/search`,
+        `https://${this.indexId}.hoppysearch.com/v1/search`,
         {
           luceneQuery: searchText,
         },
         {
           headers: {
-            Authorization: this.hoppySearchConfig?.apiKey,
+            Authorization: this.apiKey,
           },
         }
       )
