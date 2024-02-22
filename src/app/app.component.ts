@@ -10,8 +10,4 @@ import { AddressServiceAngularComponent } from 'address-service-angular';
 })
 export class AppComponent {
   title = 'address-service';
-  props = {
-    indexId: 'Enter your indexId',
-    apiKey: 'Enter your apiKey',
-  };
 }
