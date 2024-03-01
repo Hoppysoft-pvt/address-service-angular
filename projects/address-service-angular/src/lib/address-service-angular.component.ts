@@ -188,7 +188,7 @@ export class AddressServiceAngularComponent implements OnInit {
   isLoading: boolean = false;
   filteredOptions!: Observable<any[]>;
   indexId: string = '1e2tq2';
-  apiKey: string = 'hs_l63fhj1fdtysx39j';
+  apiKey: string = 'hs_2u37ib6w8wz4137f';
 
   async handleSearchAddress(event: Event, text: any) {
     event.preventDefault();
