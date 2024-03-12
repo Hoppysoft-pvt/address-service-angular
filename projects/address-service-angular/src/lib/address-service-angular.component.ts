@@ -14,6 +14,22 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 
+const appendStarToWords = (str: string) => {
+  var words = str.split(/\s+/);
+  var modifiedSentence = '';
+  for (var i = 0; i < words.length; i++) {
+    var word = words[i];
+    if (i > 0) {
+      modifiedSentence += ' ';
+    }
+    if (word.startsWith('*') || word.startsWith('?')) {
+      word = word.substring(1);
+    }
+    modifiedSentence += word + "*";
+  }
+  return modifiedSentence;
+}
+
 @Component({
   selector: 'lib-address-service-angular',
   standalone: true,
@@ -199,35 +215,22 @@ export class AddressServiceAngularComponent implements OnInit {
       this.selectedObject = {};
       return;
     }
-
-    const firstWord: string = (text?.match(/\S+/) || [])[0] || '';
-    const secondWords: string = (text?.match(/\S+/g) || []).slice(1).join(' ');
-
-    let text1: number | string;
-    let text2: string = '';
-
-    if (!isNaN(Number(firstWord))) {
-      text1 = Number(firstWord);
+    
+    const [trimmedString, firstWord, secondWord] = (text.trim().match(/^(\S+)(?:\s(.+))?$/) || []).map((str: any) => str || '');
+    let luceneQuery = ""
+    if (!isNaN(firstWord)) {
+      const modifiedStreetQuery = appendStarToWords(secondWord)
+      luceneQuery = secondWord ? `number: ${firstWord} AND street: ${modifiedStreetQuery}` : `number: ${firstWord}`
     } else {
-      text1 = `street:${firstWord}`;
+      const modifiedStreetQuery = appendStarToWords(trimmedString)
+      luceneQuery = `street: ${modifiedStreetQuery}`
     }
 
-    if (secondWords) {
-      if (typeof text1 === 'number') {
-        text2 = `AND street:${secondWords}`;
-      } else if (typeof text1 === 'string') {
-        text2 = secondWords;
-      }
-    }
-
-    let editText1 = typeof text1 === 'number' ? `number:${text1}` : text1;
-    let searchText = secondWords ? editText1 + ' ' + text2 : editText1;
-
-    await axios
+    axios
       .post(
         `https://${this.indexId}.hoppysearch.com/v1/search`,
         {
-          luceneQuery: searchText,
+          luceneQuery: luceneQuery,
         },
         {
           headers: {
