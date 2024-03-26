@@ -1,27 +1,78 @@
 # AddressService
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+hoppysearch - AngularJS client for AddressService
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project was generated with [Angular CLI](https://angular.io/cli) version 17.2.0.
+### For [Angular.js](https://angular.io/cli)
 
-## Code scaffolding
+#### npm    
+Proceed with the installation by following these steps:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell    
+npm install address-service-angular --save
+```
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Please follow the [installation](#installation) instruction and execute the following AngularJS code:
 
-## Running unit tests
+#### Begin with the initial setup process:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Add Angular Material to your project:
 
-## Running end-to-end tests
+#### cmd 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```javascript
+ng add @angular/material
+```
 
-## Further help
+2. Install the required Axios library:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### cmd 
+
+```javascript
+npm i axios
+```
+
+3. Install the address-service-angular package in your Angular project:
+
+#### cmd 
+
+```javascript
+npm i address-service-angular
+```
+
+4. Import the AddressServiceAngularComponent in your Angular component:
+
+#### typescript
+
+```javascript
+import { AddressServiceAngularComponent } from 'address-service-angular';
+```
+
+5. Add the component to your Angular module imports:
+
+#### typescript
+
+```javascript
+@Component({
+        imports: [RouterOutlet, AddressServiceAngularComponent],
+})
+```
+
+6. Add the component tag in your HTML file:
+
+#### HTML
+
+```javascript
+<lib-address-service-angular></lib-address-service-angular>
+```
+
+7. And Run ng serve for a dev server. Navigate to http://localhost:3000/. The application will automatically reload if you change any of the source files.
+
+```javascript
+ng serve
+```
+
