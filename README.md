@@ -75,6 +75,10 @@ import { AddressServiceAngularComponent } from 'address-service-angular';
 ```javascript
 ng serve
 ```
+#### You will get such a result
+
+1. You can type the address you want to search here.
 ![alt text](projects/address-service-angular/src/lib/image/Capture1.PNG)
 
+2. Now click on the address you want.
 ![alt text](projects/address-service-angular/src/lib/image/Capture2.PNG)
