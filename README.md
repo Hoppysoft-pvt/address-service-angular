@@ -1,4 +1,4 @@
-# AddressService
+# Address Service
 
 hoppysearch - AngularJS client for AddressService
 
