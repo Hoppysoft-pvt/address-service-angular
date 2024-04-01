@@ -4,7 +4,7 @@ hoppysearch - AngularJS client for AddressService
 
 ## Installation
 
-This project was generated with [Angular CLI](https://angular.io/cli) version 17.2.0.
+This project was generated with [Angular CLI](https://angular.io/cli) version 17.2.0
 ### For [Angular.js](https://angular.io/cli)
 
 ### What You Get:
