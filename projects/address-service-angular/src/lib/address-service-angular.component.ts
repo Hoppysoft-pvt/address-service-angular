@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -197,7 +197,8 @@ const appendStarToWords = (str: string) => {
   ],
 })
 export class AddressServiceAngularComponent implements OnInit {
-  
+  @Output() onAddressChange: EventEmitter<any> = new EventEmitter<any>();
+
   myControl = new FormControl('');
   list: any[] = [];
   selectedObject: any = {};
@@ -254,6 +255,15 @@ export class AddressServiceAngularComponent implements OnInit {
     let street = selectObject?.street;
     const text = number + ' ' + street;
     this.handleSearchAddress(event, text);
+    
+    
+    this.onAddressChange.emit({
+      StreetNumber: this.selectedObject?.number,
+      Street: this.selectedObject?.street,
+      City: this.selectedObject?.city,
+      State: this.selectedObject?.region,
+      ZipCode: this.selectedObject?.postcode
+    });
   }
   ngOnInit(): void {}
 }

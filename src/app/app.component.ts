@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AddressServiceAngularComponent } from 'address-service-angular';
+import { AddressServiceAngularComponent } from '../../projects/address-service-angular/src/lib/address-service-angular.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,4 +10,7 @@ import { AddressServiceAngularComponent } from 'address-service-angular';
 })
 export class AppComponent {
   title = 'address-service';
+  handleAddressChange(data: any) {
+    console.log('Received data from child:', data);
+  }
 }
