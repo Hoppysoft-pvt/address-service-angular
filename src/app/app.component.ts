@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AddressServiceAngularComponent } from '../../projects/address-service-angular/src/lib/address-service-angular.component';
+// import { AddressServiceAngularComponent } from 'address-service-angular'
 @Component({
   selector: 'app-root',
   standalone: true,

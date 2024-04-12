@@ -79,7 +79,38 @@ import { AddressServiceAngularComponent } from 'address-service-angular';
 <lib-address-service-angular></lib-address-service-angular>
 ```
 
-7. And Run ng serve for a dev server. Navigate to http://localhost:3000/. The application will automatically reload if you change any of the source files.
+7. If you want to access/modify the selected adderess, then create a function and bind that function to component tag in HTML file like below.
+
+#### typescript
+
+```javascript
+<!-- Full Code -->
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { AddressServiceAngularComponent } from 'address-service-angular';
+
+@Component({
+        selector: 'app-root',
+        standalone: true,
+        imports: [RouterOutlet,AddressServiceAngularComponent],
+        templateUrl: './app.component.html',
+        styleUrl: './app.component.css'
+})
+export class AppComponent {
+        title = 'address-service';
+        handleAddressChange(data: any) {
+                console.log('Received data from child:', data);
+        }
+}
+```
+
+#### HTML
+
+```html
+<lib-address-service-angular (onAddressChange)="handleAddressChange($event)"></lib-address-service-angular>
+```
+
+8. And Run ng serve for a dev server. Navigate to http://localhost:3000/. The application will automatically reload if you change any of the source files.
 
 #### cmd
 
@@ -92,6 +123,6 @@ ng serve
 #### You will get such a result:
 
 1. You can type the address you want to search here.
-![alt text](Capture1.PNG)
+![alt text](https://raw.githubusercontent.com/Hoppysoft-pvt/address-service-angular/main/Capture1.PNG)
 2. Now click on the address you want.
-![alt text](Capture2.PNG)
+![alt text](https://raw.githubusercontent.com/Hoppysoft-pvt/address-service-angular/main/Capture2.PNG)
