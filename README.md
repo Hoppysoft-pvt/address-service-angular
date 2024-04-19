@@ -118,7 +118,7 @@ export class AppComponent {
 ng serve
 ```
 
-#### If you need video help to install Address Service Angular package then watch this video:[Address Service Angular Demo](https://youtu.be/kaDX-3NWU-k)
+#### If you need video help to install Address Service Angular package then watch this video:[Address Service Angular Demo](https://youtu.be/ZqnBCrX9UQE)
 
 #### You will get such a result:
 
